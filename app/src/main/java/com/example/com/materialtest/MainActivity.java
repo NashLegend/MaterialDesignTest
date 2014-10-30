@@ -33,6 +33,7 @@ public class MainActivity extends ActionBarActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerAdapter = new RecyclerAdapter();
         recyclerView.setAdapter(recyclerAdapter);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

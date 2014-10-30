@@ -10,27 +10,21 @@ import java.util.ArrayList;
 import java.util.Timer;
 
 /**
- * Created by NashLegend on 2014/10/24 0024.
+ * Created by NashLegend on 2014/10/24 0024
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder> {
 
     String[] ds = {"First String", "Second Chars", "Third You Know", "Fourth Exists", "Fifth Lives",
             "Nice Number", "Fluent Kit", "Fortune Char", "Best Data", "Last One", "Milestone Number for",
-            "Two Multiply Six", "A Bad Number", "Two Lines of Poems", "Half Month", "Middle Teens", "As You Grow Up", "So Just Be An Adult", "First String", "Second Chars", "Third You Know", "Fourth Exists", "Fifth Lives",
-            "Nice Number", "Fluent Kit", "Fortune Char", "Best Data", "Last One", "Milestone Number for",
-            "Two Multiply Six", "A Bad Number", "Two Lines of Poems", "Half Month", "Middle Teens", "As You Grow Up", "So Just Be An Adult",
-            "First String", "Second Chars", "Third You Know", "Fourth Exists", "Fifth Lives",
-            "Nice Number", "Fluent Kit", "Fortune Char", "Best Data", "Last One", "Milestone Number for",
-            "Two Multiply Six", "A Bad Number", "Two Lines of Poems", "Half Month", "Middle Teens", "As You Grow Up", "So Just Be An Adult"};
+            "Two Multiply Six", "A Bad Number"};
     ArrayList<String> list = new ArrayList<String>();
 
     public RecyclerAdapter() {
-
     }
 
     Timer initTimer;
     int currentTime = 0;
-    int animateNumber = 10;
+    int animateNumber = 6;
 
     public void init() {
         initTimer = TimerUtil.setInterval(new Runnable() {
