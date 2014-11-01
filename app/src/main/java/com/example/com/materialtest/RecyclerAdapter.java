@@ -20,34 +20,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
     ArrayList<String> list = new ArrayList<String>();
 
     public RecyclerAdapter() {
-    }
-
-    Timer initTimer;
-    int currentTime = 0;
-    int animateNumber = 6;
-
-    public void init() {
-        initTimer = TimerUtil.setInterval(new Runnable() {
-            @Override
-            public void run() {
-                list.add(ds[currentTime]);
-                notifyItemInserted(currentTime);
-                currentTime++;
-                if (animateNumber < ds.length) {
-                    if (currentTime >= animateNumber && currentTime < ds.length) {
-                        TimerUtil.clearInterval(initTimer);
-                        for (int i = currentTime; i < ds.length; i++) {
-                            list.add(ds[i]);
-                        }
-                        notifyItemRangeInserted(currentTime, ds.length - currentTime);
-                    } else if (currentTime >= ds.length) {
-                        TimerUtil.clearInterval(initTimer);
-                    }
-                } else if (currentTime >= ds.length) {
-                    TimerUtil.clearInterval(initTimer);
-                }
-            }
-        }, 100, 100);
+        for (int i = 0; i < ds.length; i++) {
+            list.add(ds[i]);
+        }
     }
 
     public void addItem() {

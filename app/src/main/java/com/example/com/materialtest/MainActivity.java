@@ -1,15 +1,17 @@
 package com.example.com.materialtest;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.LayoutAnimationController;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -31,15 +33,16 @@ public class MainActivity extends ActionBarActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(layoutManager);
+
+        AnimationSet animationSet = new AnimationSet(false);
+        Animation animation = new AlphaAnimation(0, 1);
+        animation.setDuration(100);
+        animationSet.addAnimation(animation);
+        LayoutAnimationController controller = new LayoutAnimationController(animationSet, 1);
+        recyclerView.setLayoutAnimation(controller);
+
         recyclerAdapter = new RecyclerAdapter();
         recyclerView.setAdapter(recyclerAdapter);
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                recyclerAdapter.init();
-            }
-        }, 100);
     }
 
 
